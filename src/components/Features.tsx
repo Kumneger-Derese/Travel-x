@@ -29,7 +29,7 @@ const Features = () => {
 
                 <div>
                   <h3 className="font-bold">{title}</h3>
-                  <p className="text-gray-600 text-md mr-8">{content}</p>
+                  <p className="text-gray-600 dark:text-gray-400 text-md mr-8">{content}</p>
                 </div>
               </li>
             ))
@@ -64,12 +64,12 @@ const Features = () => {
         </div>
 
         {/* OverLap Small Card */}
-        <div className="shadow-2xl border border-slate-200 flex gap-1 h-fit p-2 rounded-xl w-56 absolute -bottom-16 right-0  lg:right-2 lg:bottom-32 z-50 bg-white">
+        <div className="shadow-2xl border border-slate-200 flex gap-1 h-fit p-2 rounded-xl w-56 absolute -bottom-16 right-0  lg:right-2 lg:bottom-32 z-50 bg-white dark:bg-slate-900">
           <img src={Axum} className='size-8 rounded-full' alt="" />
           <div className="flex-1 mr-2">
             <p className="text-gray-500 text-sm font-semibold">Ongoing</p>
             <h1 className="font-bold mb-1">Axum monument</h1>
-            <p className="text-sky-500 mb-1 text-sm">60% <span className="text-slate-800">completed</span></p>
+            <p className="text-sky-500 mb-1 text-sm">60% <span className="text-slate-800 dark:text-slate-400">completed</span></p>
             {/* Progress */}
             <div className="w-full h-2 bg-gray-200 rounded-xl">
               <div className="bg-sky-500 h-2 w-[60%] rounded-xl" />

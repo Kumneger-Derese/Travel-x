@@ -41,8 +41,8 @@ const Testimonials = () => {
 
         <div className="flex ml-2 gap-x-4 items-center mt-12">
           {
-            [0, 1, 2, 3, 4].map((idx) => (
-              <p className={`size-2.5 ${idx === index && ' bg-orange-600'} bg-orange-200 rounded-full`} />
+            [0, 1, 2, 3, 4].map((idx, index) => (
+              <p key={index} className={`size-2.5 ${idx === index && ' bg-orange-600'} bg-orange-200 rounded-full`} />
             ))
           }
 
@@ -57,19 +57,30 @@ const Testimonials = () => {
             <img src={testimonialsData[index].image} alt="profilpic" className="size-20 mx-auto rounded-full" />
           </div>
 
-          <p className="my-4 text-gray-500">
+          <p className="my-4 text-gray-600 dark:text-gray-400">
             <BsQuote className="inline-block text-justify" /> {' '}
             {testimonialsData[index].review}{' '}
             <BsQuote className="rotate-180 inline-block" />
           </p>
 
-          <h1 className="font-bold text-gray-600">{testimonialsData[index].name}</h1>
+          <h1 className="font-bold text-gray-600 dark:text-gray-500">{testimonialsData[index].name}</h1>
           <h3 className="font-bold text-sm text-gray-400">{testimonialsData[index].position}</h3>
         </div>
 
-        <div className="flex flex-row px-8 justify-between sm:flex-col items-center sm:justify-center gap-y-8 w-full sm:w-8">
-          <HiChevronUp onClick={handlePrev} className="-rotate-90 sm:rotate-0 hover:bg-gray-400 bg-gray-300 rounded-full text-3xl p-2.5" strokeWidth={1.5} />
-          <HiChevronDown onClick={handleNext} className="-rotate-90 sm:rotate-0 hover:bg-gray-400 bg-gray-300 rounded-full text-3xl p-2.5" strokeWidth={1.5} />
+        <div
+          className="flex flex-row px-8 justify-between sm:flex-col items-center sm:justify-center gap-y-8 w-full sm:w-8 text-slate-900">
+          <HiChevronUp
+            size={32}
+            strokeWidth={1.5}
+            onClick={handlePrev}
+            className="-rotate-90 sm:rotate-0 hover:bg-gray-400  bg-gray-100 rounded-full text-3xl p-2"
+          />
+
+          <HiChevronDown
+            size={32}
+            strokeWidth={1.5}
+            onClick={handleNext} className="-rotate-90 sm:rotate-0 hover:bg-gray-400 bg-gray-100 rounded-full text-3xl p-2"
+          />
         </div>
       </section>
     </div>

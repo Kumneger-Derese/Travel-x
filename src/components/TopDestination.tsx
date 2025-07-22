@@ -1,5 +1,7 @@
+import { motion } from "framer-motion"
 import { destinationsData } from "../constants/destinationsData"
 import { HiPaperAirplane } from "react-icons/hi2"
+import { itemVariants, listVariants } from './variant'
 
 const TopDestination = () => {
   return (
@@ -12,10 +14,14 @@ const TopDestination = () => {
         Top Destinations
       </h1>
 
-      <ul className="grid place-items-center lg:place grid-cols-1 gap-y-8 gap-x-4 lg:8 sm:grid-cols-2 lg:grid-cols-3">
+      <motion.ul
+        initial={'hidden'} whileInView={'visible'} variants={listVariants}
+        className="grid place-items-center lg:place grid-cols-1 gap-y-8 gap-x-4 lg:8 sm:grid-cols-2 lg:grid-cols-3">
         {
           destinationsData.map((destination) => (
-            <div key={destination.id} className="size-72 border bg-slate-50/50 border-slate-300 rounded-lg xl:size-80">
+            <motion.div
+              variants={itemVariants}
+              key={destination.id} className="size-72 border bg-slate-50/50 dark:bg-slate-800 border-slate-300 rounded-lg xl:size-80">
               <img src={destination.img} className="h-[70%] w-full mx-auto rounded-t-lg" alt={'Travel to' + destination.place.city} />
 
               {/* Place Iteration */}
@@ -32,10 +38,10 @@ const TopDestination = () => {
                 <HiPaperAirplane className="-rotate-45" size={24} /> <span>{destination.numberOfDays} Days trip</span>
               </div>
 
-            </div>
+            </motion.div>
           ))
         }
-      </ul>
+      </motion.ul>
 
     </div>
   )

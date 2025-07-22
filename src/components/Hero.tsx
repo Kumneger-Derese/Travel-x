@@ -1,23 +1,35 @@
+import { motion } from 'framer-motion'
 import { CgPlayButton } from "react-icons/cg"
 import HeroImage from '../assets/hero.webp'
+import HeroImageDark from '../assets/hero-dark.jpg'
+import { useTheme } from '../context/themeContext'
 
 const Hero = () => {
+  const { isDark } = useTheme()
 
   return (
     <div className="flex flex-col md:flex-row gap-4 mt-12 mb-32">
       {/* Left Section */}
       <section className="flex-1/2 sm:mt-8 flex flex-col gap-y-3 h-full">
-        <h2 className=" text-lg font-bold text-amber-600 ">
+        <motion.h2
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className=" text-lg font-bold text-amber-600 ">
           {('Best Destinations Around The World').toUpperCase()}
-        </h2>
+        </motion.h2>
 
-        <h1 className="text-4xl sm:text-5xl font-extrabold">
+        <motion.h1
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: 'easeOut' }}
+          className="text-4xl sm:text-5xl font-extrabold">
           Dream, explore<br />
           and chase sun<br />
           beyond all limits
-        </h1>
+        </motion.h1>
 
-        <p className="py-4 text-gray-600">
+        <p className="py-4 text-gray-600 dark:text-gray-400">
           From ancient highlands to untamed wildlife, find the freedom to explore, connect, and live your greatest adventures in East Africa.
         </p>
         {/* <p>
@@ -40,7 +52,7 @@ const Hero = () => {
 
       {/* Right Section */}
       <section className="flex-1/2 h-full flex justify-center items-center">
-        <img src={HeroImage} alt='HeroImage' className='w-full bg-contain object-center' />
+        <img src={isDark ? HeroImageDark : HeroImage} alt='HeroImage' className='w-full bg-contain object-center' />
       </section>
     </div>
   )
